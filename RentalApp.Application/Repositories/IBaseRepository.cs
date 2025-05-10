@@ -13,6 +13,6 @@ namespace RentalApp.Application.Repositories
         void Update(T entity);
         void Delete(T entity);
         Task<T> Get(Guid id, CancellationToken cancellationToken);
-        Task<T> GetAll(CancellationToken cancellationToken);
+        Task<List<T>> GetAll(CancellationToken cancellationToken);
     }
 }
