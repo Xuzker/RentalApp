@@ -16,7 +16,7 @@ namespace RentalApp.Infrastructure.Repositories
         {
         }
 
-        public Task<User> GetByEmail(string email, CancellationToken cancellationToken)
+        public Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken)
         {
             return _context.Users.FirstOrDefaultAsync(user  => user.Email == email, cancellationToken);
         }

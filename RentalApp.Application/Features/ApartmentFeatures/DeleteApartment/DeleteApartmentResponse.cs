@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RentalApp.Application.Features.ApartmentFeatures.GetAllApartment
+﻿namespace RentalApp.Application.Features.ApartmentFeatures.DeleteApartment
 {
-    public sealed record GetAllApartmentResponse
+    public sealed record DeleteApartmentResponse
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
@@ -14,6 +8,6 @@ namespace RentalApp.Application.Features.ApartmentFeatures.GetAllApartment
         public string Address { get; set; } = string.Empty;
         public int Rooms { get; set; }
         public decimal PricePerDay { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
     }
 }

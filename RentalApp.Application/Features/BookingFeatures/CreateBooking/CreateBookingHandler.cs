@@ -49,7 +49,7 @@ namespace RentalApp.Application.Features.Bookings.CreateBooking
             };
 
             _bookingRepository.Create(booking);
-            await _unitOfWork.Save(cancellationToken);
+            await _unitOfWork.SaveAsync(cancellationToken);
 
             return _mapper.Map<CreateBookingResponse>(booking);
         }

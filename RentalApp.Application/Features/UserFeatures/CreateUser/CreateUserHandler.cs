@@ -27,7 +27,7 @@ namespace RentalApp.Application.Features.UserFeatures.CreateUser
         {
             var user = _mapper.Map<User>(request);
             _userRepository.Create(user);
-            await _unitOfWork.Save(cancellationToken);
+            await _unitOfWork.SaveAsync(cancellationToken);
 
             return _mapper.Map<CreateUserResponse>(user);
         }

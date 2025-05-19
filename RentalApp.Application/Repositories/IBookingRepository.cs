@@ -9,6 +9,6 @@ namespace RentalApp.Application.Repositories
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
-        Task<List<Booking>> GetUserBookings(Guid userId, CancellationToken cancellationToken);
+        Task<List<Booking>> GetUserBookingsAsync(Guid userId, CancellationToken cancellationToken);
     }
 }

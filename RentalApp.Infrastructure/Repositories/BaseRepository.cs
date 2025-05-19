@@ -21,6 +21,8 @@ namespace RentalApp.Infrastructure.Repositories
 
         public void Create(T entity)
         {
+            entity.DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+
             _context.Add(entity);
         }
 
@@ -31,18 +33,18 @@ namespace RentalApp.Infrastructure.Repositories
 
         public void Delete(T entity)
         {
-            entity.DateCreated = DateTimeOffset.UtcNow;
+            entity.DateDeleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             _context.Update(entity);
         }
 
-        public Task<T> Get(Guid id, CancellationToken cancellationToken)
+        public async Task<T?> Get(Guid id, CancellationToken cancellationToken)
         {
-            return _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            return await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
-        public Task<List<T>> GetAll(CancellationToken cancellationToken)
+        public async Task<List<T>> GetAll(CancellationToken cancellationToken)
         {
-            return _context.Set<T>().ToListAsync(cancellationToken);
+            return await _context.Set<T>().ToListAsync(cancellationToken);
         }
     }
 }

@@ -8,7 +8,5 @@ using System.Threading.Tasks;
 
 namespace RentalApp.Application.Features.ApartmentFeatures.GetAllApartment
 {
-    public sealed record GetAllApartmentRequest(
-        DateTime From,
-        DateTime To) : IRequest<List<GetAllApartmentResponse>>;
+    public sealed record GetAllApartmentRequest() : IRequest<List<GetAllApartmentResponse>>;
 }

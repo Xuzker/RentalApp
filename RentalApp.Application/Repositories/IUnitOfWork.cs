@@ -8,6 +8,6 @@ namespace RentalApp.Application.Repositories
 {
     public interface IUnitOfWork
     {
-        Task Save(CancellationToken cancellationToken);
+        Task SaveAsync(CancellationToken cancellationToken);
     }
 }

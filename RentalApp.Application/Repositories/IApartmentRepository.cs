@@ -9,6 +9,6 @@ namespace RentalApp.Application.Repositories
 {
     public interface IApartmentRepository: IBaseRepository<Apartment>
     {
-        Task<List<Apartment>> GetAvailableApartments(DateTime from, DateTime to, CancellationToken cancellationToken);
+        Task<List<Apartment>> GetAvailableApartmentsAsync(DateTime from, DateTime to, CancellationToken cancellationToken);
     }
 }

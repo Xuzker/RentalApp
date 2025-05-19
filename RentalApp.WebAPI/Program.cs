@@ -1,3 +1,7 @@
+using RentalApp.Application;
+using RentalApp.Infrastructure;
+using RentalApp.Infrastructure.Context;
+using RentalApp.WebAPI.Extensions;
 
 namespace RentalApp.WebAPI
 {
@@ -7,7 +11,15 @@ namespace RentalApp.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.ConfigureInfrastructure(builder.Configuration);
+
+            builder.Services.ConfigureApplication();
+
+            // Добавляем кастомную настройку поведения API
+            builder.Services.ConfigureApiBehavior();
+
+            // Добавляем политику CORS
+            builder.Services.ConfigureCorsPolicy();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -15,6 +27,10 @@ namespace RentalApp.WebAPI
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            var serviceScope = app.Services.CreateScope();
+            var dataContext = serviceScope.ServiceProvider.GetService<DataContext>();
+            dataContext?.Database.EnsureCreated();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -17,9 +17,9 @@ namespace RentalApp.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task Save(CancellationToken cancellationToken)
+        public async Task SaveAsync(CancellationToken cancellationToken)
         {
-            return _context.SaveChangesAsync(cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

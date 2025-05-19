@@ -16,12 +16,20 @@ namespace RentalApp.Infrastructure.Repositories
         {
         }
 
-        public Task<List<Apartment>> GetAvailableApartments(DateTime from, DateTime to, CancellationToken cancellationToken)
+        public Task<List<Apartment>> GetAvailableApartmentsAsync(DateTime from, DateTime to, CancellationToken cancellationToken)
         {
+            var utcFrom = from.Kind == DateTimeKind.Unspecified
+                ? DateTime.SpecifyKind(from, DateTimeKind.Utc)
+                : from.ToUniversalTime();
+
+            var utcTo = to.Kind == DateTimeKind.Unspecified
+                ? DateTime.SpecifyKind(to, DateTimeKind.Utc)
+                : to.ToUniversalTime();
+
             return _context.Apartments.Include(x => x.Bookings)
                 .Where(apartment => apartment.IsAvailable &&
                     !apartment.Bookings.Any(booking => booking.Status == "Pending" &&
-                            (booking.StartDate <= to && booking.EndDate >= from)))
+                            (booking.StartDate <= utcTo && booking.EndDate >= utcFrom)))
                 .ToListAsync(cancellationToken);
         }
     }

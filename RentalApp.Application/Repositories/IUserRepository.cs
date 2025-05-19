@@ -9,6 +9,6 @@ namespace RentalApp.Application.Repositories
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        Task<User> GetByEmail(string email, CancellationToken cancellationToken);
+        Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken);
     }
 }

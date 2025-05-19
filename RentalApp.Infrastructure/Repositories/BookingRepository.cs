@@ -16,7 +16,7 @@ namespace RentalApp.Infrastructure.Repositories
         {
         }
 
-        public Task<List<Booking>> GetUserBookings(Guid userId, CancellationToken cancellationToken)
+        public Task<List<Booking>> GetUserBookingsAsync(Guid userId, CancellationToken cancellationToken)
         {
             return _context.Bookings.Where(booking => booking.UserId == userId)
                 .ToListAsync(cancellationToken);
