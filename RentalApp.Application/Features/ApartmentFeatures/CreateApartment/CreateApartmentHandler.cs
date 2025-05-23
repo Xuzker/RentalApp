@@ -34,7 +34,7 @@ namespace RentalApp.Application.Features.Apartments.CreateApartment
             apartment.IsAvailable = true;
 
             _repository.Create(apartment);
-            await _unitOfWork.SaveAsync(cancellationToken);
+            await _unitOfWork.Save(cancellationToken);
 
             return _mappper.Map<CreateApartmentResponse>(apartment);
         }
