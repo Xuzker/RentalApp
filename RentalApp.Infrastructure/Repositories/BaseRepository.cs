@@ -34,7 +34,7 @@ namespace RentalApp.Infrastructure.Repositories
         public void Delete(T entity)
         {
             entity.DateDeleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-            _context.Update(entity);
+            _context.Remove(entity);
         }
 
         public async Task<T?> Get(Guid id, CancellationToken cancellationToken)

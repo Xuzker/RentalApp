@@ -8,6 +8,6 @@
         public string Address { get; set; } = string.Empty;
         public int Rooms { get; set; }
         public decimal PricePerDay { get; set; }
-        public DateTimeOffset DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

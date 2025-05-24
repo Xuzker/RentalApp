@@ -9,12 +9,14 @@ namespace RentalApp.Application.Features.ApartmentFeatures.DeleteApartment
         IRequestHandler<DeleteApartmentRequest, DeleteApartmentResponse>
     {
         private readonly IApartmentRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public DeleteApartmentHandler(IApartmentRepository repository, IMapper mapper)
+        public DeleteApartmentHandler(IApartmentRepository repository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _repository = repository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<DeleteApartmentResponse> Handle(DeleteApartmentRequest request, CancellationToken cancellationToken)
@@ -26,6 +28,7 @@ namespace RentalApp.Application.Features.ApartmentFeatures.DeleteApartment
                 throw new NotFoundException($"Apartment with Id: {request.Id} not found!");
             }
             _repository.Delete(apartment);
+            await _unitOfWork.SaveAsync(cancellationToken);
 
             return _mapper.Map<DeleteApartmentResponse>(apartment);
         }

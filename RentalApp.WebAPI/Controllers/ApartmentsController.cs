@@ -76,11 +76,12 @@ namespace RentalApp.WebAPI.Controllers
 
         [HttpPut("{id}")]
         public async Task<ActionResult<UpdateApartmentResponse>> UpdateApartment(
-            Guid id, [FromBody] UpdateApartmentRequest updateRequest)
+            Guid id, [FromBody] UpdateApartmentRequest updateRequest, CancellationToken cancellationToken)
         {
+
             var updatedRequest = updateRequest with { Id = id };
 
-            var response = await _mediator.Send(updatedRequest);
+            var response = await _mediator.Send(updatedRequest, cancellationToken);
             return Ok(response);
         }
     }

@@ -15,11 +15,13 @@ namespace RentalApp.Application.Features.ApartmentFeatures.UpdateApartment
     {
         private readonly IApartmentRepository _apartmentRepository;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateApartmentHandler(IApartmentRepository apartmentRepository, IMapper mapper)
+        public UpdateApartmentHandler(IApartmentRepository apartmentRepository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _apartmentRepository = apartmentRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<UpdateApartmentResponse> Handle(UpdateApartmentRequest request, CancellationToken cancellationToken)
@@ -33,6 +35,7 @@ namespace RentalApp.Application.Features.ApartmentFeatures.UpdateApartment
 
             _mapper.Map(request, apartment);
             apartment.DateUpdated = DateTime.UtcNow;
+            await _unitOfWork.SaveAsync(cancellationToken);
 
             return _mapper.Map<UpdateApartmentResponse>(apartment);
         }
