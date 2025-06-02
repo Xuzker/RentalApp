@@ -1,14 +1,19 @@
-﻿using RentalApp.Domain.Common;
+﻿using RentalApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalApp.Domain.Entities
+namespace RentalApp.Application.Features.BookingFeatures.DeleteBooking
 {
-    public sealed class Booking : BaseEntity
+    public sealed record DeleteBookingResponse
     {
+        public Guid Id { get; set; }
+
+        public DateTime? DateCreated { get; set; }
+
+
         public Guid ApartmentId { get; set; }
         public Apartment Apartment { get; set; } = null!;
 
@@ -22,6 +27,5 @@ namespace RentalApp.Domain.Entities
         public decimal TotalPrice { get; set; }
 
         public string Status { get; set; } = string.Empty;
-
     }
 }

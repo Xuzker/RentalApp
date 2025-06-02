@@ -12,8 +12,8 @@ namespace RentalApp.Application.Features.UserFeatures.CreateUser
         public CreateUserValidator()
         {
             RuleFor(x => x.Name).MaximumLength(50).NotEmpty();
-            RuleFor(x => x.Email).MinimumLength(10).MaximumLength(50).NotEmpty();
-            RuleFor(x => x.PasswordHash).NotEmpty();
+            RuleFor(x => x.Email).MinimumLength(10).MaximumLength(50).NotEmpty().EmailAddress();
+            RuleFor(x => x.PasswordHash).MinimumLength(6).NotEmpty();
         }
     }
 }
