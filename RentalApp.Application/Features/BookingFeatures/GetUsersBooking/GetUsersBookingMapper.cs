@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace RentalApp.Application.Features.BookingFeatures.GetUsersBooking
 {
-    public sealed class GetUserBookingsMapper : Profile
+    public sealed class GetUsersBookingMapper : Profile
     {
-        public GetUserBookingsMapper()
+        public GetUsersBookingMapper()
         {
-            CreateMap<Booking, GetUserBookingsResponse>();
+            CreateMap<Booking, GetUsersBookingResponse>();
         }
     }
 }

@@ -1,18 +1,10 @@
 ﻿using RentalApp.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RentalApp.Application.Features.BookingFeatures.GetUsersBooking
+namespace RentalApp.Application.Features.BookingFeatures.UpdateBooking
 {
-    public sealed record GetUserBookingsResponse
+    public sealed record UpdateBookingResponse
     {
         public Guid Id { get; set; }
-
-        public DateTime? DateCreated { get; set; }
-
 
         public Guid ApartmentId { get; set; }
         public Apartment Apartment { get; set; } = null!;
@@ -25,7 +17,5 @@ namespace RentalApp.Application.Features.BookingFeatures.GetUsersBooking
         public DateTime EndDate { get; set; }
 
         public decimal TotalPrice { get; set; }
-
-        public string Status { get; set; } = string.Empty;
     }
 }

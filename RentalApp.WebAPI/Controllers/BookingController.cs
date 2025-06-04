@@ -5,6 +5,7 @@ using RentalApp.Application.Features.ApartmentFeatures.GetAllApartment;
 using RentalApp.Application.Features.ApartmentFeatures.GetApartmentById;
 using RentalApp.Application.Features.ApartmentFeatures.GetAvailableApartment;
 using RentalApp.Application.Features.ApartmentFeatures.UpdateApartment;
+using RentalApp.Application.Features.BookingFeatures.DeleteBooking;
 using RentalApp.Application.Features.BookingFeatures.GetAllBooking;
 using RentalApp.Application.Features.BookingFeatures.GetBookingById;
 using RentalApp.Application.Features.BookingFeatures.GetUsersBooking;
@@ -54,36 +55,37 @@ namespace RentalApp.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<List<GetUserBookingsResponse>>> GetUserBookings(
-            Guid id, 
+        [HttpGet("users/{id}")]
+        public async Task<ActionResult<List<GetUsersBookingResponse>>> GetUsersBooking(
+            Guid id,
             CancellationToken cancellationToken)
         {
-            var request = new GetUserBookingsRequest(id);
+            var request = new GetUsersBookingRequest(id);
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
 
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<DeleteBookingResponse>> DeleteBookingById(
-        //    Guid id,
-        //    CancellationToken cancellationToken)
-        //{
-        //    var request = new DeleteBookingRequest(id);
-        //    var response = await _mediator.Send(request, cancellationToken);
-        //    return Ok(response);
-        //}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<DeleteBookingResponse>> DeleteBookingById(
+            Guid id,
+            CancellationToken cancellationToken)
+        {
+            var request = new DeleteBookingRequest(id);
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
+        }
 
 
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult<UpdateBookingResponse>> UpdateBooking(
-        //    Guid id, [FromBody] UpdateBookingRequest updateRequest, CancellationToken cancellationToken)
-        //{
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UpdateApartmentResponse>> UpdateBooking(
+            Guid id, [FromBody] UpdateApartmentRequest updateRequest, 
+            CancellationToken cancellationToken)
+        {
 
-        //    var updatedRequest = updateRequest with { Id = id };
+            var updatedRequest = updateRequest with { Id = id };
 
-        //    var response = await _mediator.Send(updatedRequest, cancellationToken);
-        //    return Ok(response);
-        //}
+            var response = await _mediator.Send(updatedRequest, cancellationToken);
+            return Ok(response);
+        }
     }
 }

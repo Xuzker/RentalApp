@@ -5,20 +5,20 @@ using RentalApp.Application.Common.Exceptions;
 
 namespace RentalApp.Application.Features.BookingFeatures.GetUsersBooking
 {
-    public sealed class GetUserBookingsHandler : IRequestHandler<GetUserBookingsRequest, List<GetUserBookingsResponse>>
+    public sealed class GetUsersBookingHandler : IRequestHandler<GetUsersBookingRequest, List<GetUsersBookingResponse>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IBookingRepository _bookingRepository;
         private readonly IMapper _mapper;
 
-        public GetUserBookingsHandler(IUserRepository userRepository, IMapper mapper, IBookingRepository bookingRepository)
+        public GetUsersBookingHandler(IUserRepository userRepository, IMapper mapper, IBookingRepository bookingRepository)
         {
             _userRepository = userRepository;
             _mapper = mapper;
             _bookingRepository = bookingRepository;
         }
 
-        public async Task<List<GetUserBookingsResponse>> Handle(GetUserBookingsRequest request, CancellationToken cancellationToken)
+        public async Task<List<GetUsersBookingResponse>> Handle(GetUsersBookingRequest request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.Get(request.UserId, cancellationToken);
 
@@ -29,7 +29,7 @@ namespace RentalApp.Application.Features.BookingFeatures.GetUsersBooking
 
             var bookings = await _bookingRepository.GetUserBookingsAsync(user.Id, cancellationToken);
 
-            return _mapper.Map<List<GetUserBookingsResponse>>(bookings);
+            return _mapper.Map<List<GetUsersBookingResponse>>(bookings);
         }
     }
 }
