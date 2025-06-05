@@ -1,0 +1,29 @@
+name: .NET CI for RentalApp
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🔄 Клонирование репозитория
+      uses: actions/checkout@v3
+
+    - name: 🔧 Установка .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'  # или твоя версия, например 7.0.x
+
+    - name: 📦 Восстановление зависимостей
+      run: dotnet restore RentalApp.sln
+
+    - name: 🧱 Сборка решения
+      run: dotnet build RentalApp.sln --no-restore --configuration Release
+
+    - name: 🧪 Прогон тестов
+      run: dotnet test RentalApp.sln --no-build --configuration Release --logger "console;verbosity=normal"
