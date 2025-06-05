@@ -49,9 +49,6 @@ namespace RentalApp.WebAPI.Controllers
             var request = new GetBookingByIdRequest(id);
             var response = await _mediator.Send(request, cancellationToken);
 
-            if (response == null)
-                return NotFound();
-
             return Ok(response);
         }
 

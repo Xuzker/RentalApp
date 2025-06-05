@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RentalApp.Application.Features.BookingFeatures.GetAllBooking;
 using RentalApp.Application.Features.UserFeatures.CreateUser;
 using RentalApp.Application.Features.UserFeatures.DeleteUser;
+using RentalApp.Application.Features.UserFeatures.GetUserByEmail;
 using RentalApp.Application.Features.UserFeatures.GetUserById;
 
 namespace RentalApp.WebAPI.Controllers
@@ -42,8 +43,17 @@ namespace RentalApp.WebAPI.Controllers
             var request = new GetUserByIdRequest(id);
             var response = await _mediator.Send(request, cancellationToken);
 
-            if (response == null)
-                return NotFound();
+            return Ok(response);
+        }
+
+
+        [HttpGet("by-email")]
+        public async Task<ActionResult<GetUserByEmailResponse>> GetUserByEmail(
+            [FromQuery] string email,
+            CancellationToken cancellationToken)
+        {
+            var request = new GetUserByEmailRequest(email);
+            var response = await _mediator.Send(request, cancellationToken);
 
             return Ok(response);
         }
