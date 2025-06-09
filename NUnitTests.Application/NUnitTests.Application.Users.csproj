@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\RentalApp.Application\RentalApp.Application.csproj" />
+	  <ProjectReference Include="..\RentalApp.Domain\RentalApp.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

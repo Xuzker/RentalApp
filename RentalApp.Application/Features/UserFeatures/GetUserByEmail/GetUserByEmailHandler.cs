@@ -23,6 +23,12 @@ namespace RentalApp.Application.Features.UserFeatures.GetUserByEmail
 
         public async Task<GetUserByEmailResponse> Handle(GetUserByEmailRequest request, CancellationToken cancellationToken)
         {
+            if(request.Email == null)
+                throw new ArgumentNullException($"The email is null");
+
+            if (request.Email.Length == 0)
+                throw new ArgumentException($"The email is empty");
+
             var user = await _userRepository.GetByEmailAsync(request.Email, cancellationToken);
 
             if(user == null) 

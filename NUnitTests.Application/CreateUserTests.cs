@@ -4,7 +4,7 @@ using RentalApp.Application.Features.UserFeatures.CreateUser;
 using RentalApp.Application.Repositories;
 using RentalApp.Domain.Entities;
 
-namespace NUnitTests.Application
+namespace NUnitTests.Application.Users
 {
     [TestFixture]
     public class CreateUserTests

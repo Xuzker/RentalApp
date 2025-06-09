@@ -8,5 +8,5 @@
         int Rooms,
         decimal PricePerDay,
         bool IsAvailable,
-        DateTimeOffset DateCreated);
+        DateTime DateCreated);
 }

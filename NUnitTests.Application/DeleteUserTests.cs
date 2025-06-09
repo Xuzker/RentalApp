@@ -4,13 +4,9 @@ using RentalApp.Application.Features.UserFeatures.CreateUser;
 using RentalApp.Application.Features.UserFeatures.DeleteUser;
 using RentalApp.Application.Repositories;
 using RentalApp.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NUnitTests.Application
+
+namespace NUnitTests.Application.Users
 {
     [TestFixture]
     partial class DeleteUserTests

@@ -24,6 +24,9 @@ namespace RentalApp.Application.Features.BookingFeatures.GetAllBooking
         {
             var bookings = await _repository.GetAll(cancellationToken);
 
+            if (bookings == null)
+                throw new OperationCanceledException("No users found.");
+
             return _mapper.Map<List<GetAllUserResponse>>(bookings);
         }
     }

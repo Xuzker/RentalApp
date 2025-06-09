@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RentalApp.Application.Features.BookingFeatures.GetBookingById
 {
-    internal class GetBookingByIdHandler : IRequestHandler<GetBookingByIdRequest, GetBookingByIdResponse>
+    public class GetBookingByIdHandler : IRequestHandler<GetBookingByIdRequest, GetBookingByIdResponse>
     {
         private readonly IBookingRepository _repository;
         private readonly IMapper _mapper;

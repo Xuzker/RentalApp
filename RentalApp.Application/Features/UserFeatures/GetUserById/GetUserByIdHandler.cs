@@ -24,6 +24,8 @@ namespace RentalApp.Application.Features.UserFeatures.GetUserById
 
         public async Task<GetUserByIdResponse> Handle(GetUserByIdRequest request, CancellationToken cancellationToken)
         {
+            if (request.Id == Guid.Empty)
+                throw new ArgumentException("The Id is empty");
             var user = await _userRepository.Get(request.Id, cancellationToken);
 
             if (user == null)

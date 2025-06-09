@@ -26,6 +26,11 @@ namespace RentalApp.Application.Features.ApartmentFeatures.GetAvailableApartment
             var apartments = await _repository.GetAvailableApartmentsAsync(
                 request.From, request.To, cancellationToken);
 
+            if (request.From > request.To)
+            {
+                throw new ArgumentException("From date cannot be after To date");
+            }
+
             return _mapper.Map<List<GetAvailableApartmentResponse>>(apartments);
         }
     }
