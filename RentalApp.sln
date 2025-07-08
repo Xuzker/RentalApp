@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnitTests.Infrasctructre",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalApp.NUnitTests.Infrasctructre", "RentalApp.NUnitTests.Infrasctructre\RentalApp.NUnitTests.Infrasctructre.csproj", "{7E4629A1-30AF-47B2-B601-57FB11C43ECF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTests.Application.Users", "NUnitTests.Application\NUnitTests.Application.Users.csproj", "{5ECD308D-DE5C-47BF-8426-FE2EF00655B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalApp.NUnitTests.Application.Users", "NUnitTests.Application\RentalApp.NUnitTests.Application.Users.csproj", "{5ECD308D-DE5C-47BF-8426-FE2EF00655B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnitTests.WebAPI", "NUnitTests.WebAPI", "{597598BA-D3A4-4EF1-9352-9E35325E26A5}"
 EndProject
@@ -37,13 +37,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentalApp.NUnitTests.WebAPI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{A74293F4-3E13-41A6-A74A-2B353818FCE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests.Application.Appartments", "NUnitTests.Application.Apartment\NUnitTests.Application.Appartments.csproj", "{280469D8-E02F-4901-8CFE-780B9056FBA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalApp.NUnitTests.Application.Appartments", "NUnitTests.Application.Apartment\RentalApp.NUnitTests.Application.Appartments.csproj", "{280469D8-E02F-4901-8CFE-780B9056FBA5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apartment", "Apartment", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{422016E5-2C8E-49CB-9D0C-2492F680A3FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests.Application.Bookings", "NUnitTests.Application.Bookings\NUnitTests.Application.Bookings.csproj", "{11FFB058-7385-4812-9796-37EF861719E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalApp.NUnitTests.Application.Bookings", "NUnitTests.Application.Bookings\RentalApp.NUnitTests.Application.Bookings.csproj", "{11FFB058-7385-4812-9796-37EF861719E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
