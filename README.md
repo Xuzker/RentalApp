@@ -25,7 +25,7 @@ RentalApp — это современное веб-приложение для �
 - Clean Architecture
 
 
-<pre> ```text 📁 Структура проекта RentalApp/ ├── Core/ │ ├── RentalApp.Application — бизнес-логика │ └── RentalApp.Domain — сущности и интерфейсы │ ├── Infrastructure/ │ └── RentalApp.Infrastructure — EF Core, контексты, репозитории │ ├── Presentation/ │ └── RentalApp.WebAPI — ASP.NET Core контроллеры │ ├── NUnitTests/ │ ├── NUnitTests.Application │ ├── NUnitTests.Domain │ ├── NUnitTests.Infrastructure │ └── NUnitTests.WebAPI │ ├── .github/workflows — GitHub Actions конфигурация └── RentalApp.sln — решение проекта ``` </pre>
+<pre lang="text"> ```text 📁 Структура проекта RentalApp/ ├── Core/ │ ├── RentalApp.Application — бизнес-логика │ └── RentalApp.Domain — сущности и интерфейсы │ ├── Infrastructure/ │ └── RentalApp.Infrastructure — EF Core, контексты, репозитории │ ├── Presentation/ │ └── RentalApp.WebAPI — ASP.NET Core контроллеры │ ├── NUnitTests/ │ ├── NUnitTests.Application │ ├── NUnitTests.Domain │ ├── NUnitTests.Infrastructure │ └── NUnitTests.WebAPI │ ├── .github/workflows — GitHub Actions конфигурация └── RentalApp.sln — решение проекта ``` </pre>
 
 
 # 🚀 Как запустить
