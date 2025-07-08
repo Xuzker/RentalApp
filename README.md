@@ -64,30 +64,30 @@ RentalApp/
 Swagger доступен по адресу:
 https://localhost:7192/swagger/index.html
 
-# 📘 API Контроллеры
+## 📘 API Контроллеры
 
-== 🏘️ Apartments ==
-GET     /api/Apartments
-GET     /api/Apartments/{id}
-GET     /api/Apartments/available
-POST    /api/Apartments
-PUT     /api/Apartments/{id}
-DELETE  /api/Apartments/{id}
+### 🏘️ Apartments
+- `GET    /api/Apartments`
+- `GET    /api/Apartments/{id}`
+- `GET    /api/Apartments/available`
+- `POST   /api/Apartments`
+- `PUT    /api/Apartments/{id}`
+- `DELETE /api/Apartments/{id}`
 
-== 📅 Booking ==
-GET     /api/Booking
-GET     /api/Booking/{id}
-GET     /api/Booking/users/{id}
-POST    /api/Booking
-PUT     /api/Booking/{id}
-DELETE  /api/Booking/{id}
+### 📅 Booking
+- `GET    /api/Booking`
+- `GET    /api/Booking/{id}`
+- `GET    /api/Booking/users/{id}`
+- `POST   /api/Booking`
+- `PUT    /api/Booking/{id}`
+- `DELETE /api/Booking/{id}`
 
-== 👤 User ==
-GET     /api/User
-GET     /api/User/{id}
-GET     /api/User/by-email?email=
-POST    /api/User
-DELETE  /api/User/{id}
+### 👤 User
+- `GET    /api/User`
+- `GET    /api/User/{id}`
+- `GET    /api/User/by-email?email=`
+- `POST   /api/User`
+- `DELETE /api/User/{id}`
 
 
 # ✅ Тестирование
